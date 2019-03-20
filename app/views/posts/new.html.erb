@@ -20,12 +20,12 @@
 <%= form_with scope: :posts, local: true do |form| %>
   <p>
     <%= form.label :item_name %><br>
-    <%= form.text_field :item_name, class: 'form-control' %>
+    <%= form.text_field :item_name, class: 'form-control', placeholder: '例：カバン' %>
   </p>
 
   <p>
     <%= form.label :text %><br>
-    <%= form.text_area :text, class: 'form-control' %>
+    <%= form.text_area :text, class: 'form-control', placeholder: '例：hogehogefoobar' %>
   </p>
 
   <p>
