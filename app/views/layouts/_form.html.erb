@@ -1,0 +1,30 @@
+<%= form_with scope: :posts, local: true do |form| %>
+  <p>
+    <% form.label :Email %><br>
+    <%= form.text_field :email, class: 'form-control', placeholder: 'メールアドレス' %>
+  </p>
+
+  <p>
+    <% form.label :name %>
+    <%= form.text_field :user_name, class: 'form-control', placeholder: 'フルネーム' %>
+  </p>
+
+  <p>
+    <% form.label :Nickname %>
+    <%= form.text_field :nickname, class: 'form-control', placeholder: 'ニックネーム' %>
+  </p>
+
+  <p>
+    <% form.label :password %>
+    <%= form.password_field :password, class: 'form-control', placeholder: 'パスワード' %>
+  </p>
+
+  <p>
+    <% form.label :password %>
+    <%= form.password_field :password, class: 'form-control', placeholder: 'パスワード(確認)' %>
+  </p>
+
+  <p>
+    <%= form.submit '登録する', class: 'btn btn-lg btn-info btn-block' %>
+  </p>
+<% end %>

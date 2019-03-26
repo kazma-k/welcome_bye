@@ -1,57 +1,54 @@
-<div class="text-center">
-    <h1>WelcomByeへようこそ</h1>
-    <h3>今すぐ写真を投稿しよう!</h3>
-    <h5>ユーザー登録、ログインをクリック</h5>
-</div>
-
-<div class="box">
-
-</div>
-<div class="container">
-    <div class="row">
-        <div class="item1 col-xs-6 col-lg-4">
-          <%= link_to image_tag("4b7c508ac19ceab99bdaca5dd162ff37_m.jpg", alt: "top image")%>
+<% if user_signed_in? %>
+    <% @posts.each do |post| %>
+    <div class="card-deck">
+    <div class="card">
+      <%= link_to image_tag("4b7c508ac19ceab99bdaca5dd162ff37_m.jpg", alt: "top image", class: 'card-img-top')%>
+      <div class="card-body">
+        <h4 class="card-title"><%= post.item_name %></h4>
+        <p class="card-text"><%= post.text %></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <%= link_to image_tag("449A0960.jpg", alt: "top image", class: 'card-img-top')%>
+      <div class="card-body">
+        <h4 class="card-title"><%= post.item_name %></h4>
+        <p class="card-text"><%= post.text %></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <%= link_to image_tag("2016-10-21-19.58.24.jpg", alt: "top image", class: 'card-img-top')%>
+      <div class="card-body">
+        <h4 class="card-title"><%= post.item_name %></h4>
+        <p class="card-text"><%= post.text %></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+    <% else %>
+    </div>
+        <div class="text-center">
+            <h1>WelcomByeへようこそ</h1>
+            <h3>今すぐ写真を投稿しよう!</h3>
         </div>
-        <div class="item2 col-xs-6 col-lg-8">
-          <h1 class="logo">WelcomBye</h1>
-          <h2 class="catchcopy">買った物・捨てた物を整理しよう</h2>
-          <%= form_with scope: :posts, local: true do |form| %>
-            <p>
-              <%= form.label :Email %><br>
-              <%= form.text_field :email, class: 'form-control', placeholder: 'メールアドレス' %>
-            </p>
-
-            <p>
-              <%= form.label :name %><br>
-              <%= form.text_field :name, class: 'form-control', placeholder: 'フルネーム' %>
-            </p>
-
-            <p>
-              <%= form.label :Nickname %><br>
-              <%= form.text_field :nickname, class: 'form-control', placeholder: 'ニックネーム' %>
-            </p>
-
-            <p>
-              <%= form.label :password %><br>
-              <%= form.password_field :password, class: 'form-control', placeholder: 'パスワード' %>
-            </p>
-
-            <p>
-              <%= form.label :password %><br>
-              <%= form.password_field :password, class: 'form-control', placeholder: 'パスワード(確認)' %>
-            </p>
-
-            <p>
-              <%= form.submit '登録する', class: 'btn btn-lg btn-primary btn-block' %>
-            </p>
-          <% end %>
-          <div class="login-jump">
-            <p>
-              アカウントをお持ちですか?
-              <a href="#">ログインする</a>
-            </p>
-          </div>
-
-        </div>
+        <div class="container">
+            <div class="row">
+                <div class="item1 col-xs-6 col-lg-4">
+                  <%= link_to image_tag("4b7c508ac19ceab99bdaca5dd162ff37_m.jpg", alt: "top image")%>
+                </div>
+                <div class="item2 col-xs-6 col-lg-8">
+                  <h1 class="logo">WelcomBye</h1>
+                  <h2 class="catchcopy">手にした物・手放した物を整理しよう</h2>
+                <%= render 'layouts/form' %>
+                <div class="login-jump">
+                  <p>
+                    アカウントをお持ちですか?
+                    <%= link_to 'ログインする', new_user_session_path %>
+                  </p>
+                </div>
+              </div>
+        <% end %>
     </div>
 </div>
