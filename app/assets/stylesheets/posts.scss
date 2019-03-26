@@ -30,9 +30,13 @@
   size: 80;
 }
 
-.actions {
-  
+.form-group {
+  background-color: #fafafa;
 }
+.actions {
+
+}
+
 
 img {
   width: 100%;
@@ -40,6 +44,15 @@ img {
 
 .pagetitle {
   margin: 50px auto;
+}
+
+.form-group {
+  width: 500px;
+  margin: auto;
+}
+
+.label_text {
+  text-align: left;
 }
 
 /* footer */

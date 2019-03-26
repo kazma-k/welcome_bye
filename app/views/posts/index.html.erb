@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
     <div class="contents row" >
-    <% [].each do |tweet| %>
-      <p><%= tweet %></p>
+    <% @posts.each do |post| %>
+      <p><%= post.item_name %></p>
+      <%= post.text %>
     <% end %>
     <% else %>
     </div>
@@ -17,14 +18,14 @@
                 <div class="item2 col-xs-6 col-lg-8">
                   <h1 class="logo">WelcomBye</h1>
                   <h2 class="catchcopy">手にした物・手放した物を整理しよう</h2>
-                  <%= render 'layouts/form' %>
-                  <div class="login-jump">
-                    <p>
-                      アカウントをお持ちですか?
-                      <%= link_to 'ログインする', new_user_session_path %>
-                    </p>
-                  </div>
+                <%= render 'layouts/form' %>
+                <div class="login-jump">
+                  <p>
+                    アカウントをお持ちですか?
+                    <%= link_to 'ログインする', new_user_session_path %>
+                  </p>
                 </div>
+              </div>
         <% end %>
     </div>
 </div>
