@@ -53,19 +53,23 @@
           <!-- *_path はUserモデルを作成したときに、
           deviseにより自動で作成されてますので、rake routesで確認できます -->
           Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-          <%= link_to "ログアウト", destroy_user_session, method: :delete %>
+          <%# link_to "ログアウト", destroy_user_session, method: :delete %>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">投稿一覧<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">新規投稿</a>
+            <%= link_to "新規投稿", new_post_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">マイページ</a>
+            <%= link_to "マイページ", edit_user_registration_path, class: "nav-link" %>
           </li>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <div class="session-control-box">
+          </div>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="検索ワード" aria-label="Search">

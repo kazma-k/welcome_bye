@@ -6,15 +6,16 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
   end
 
   def new
-    @post = Post.find(params[:id])
+    @post = Post.new
   end
 
   def create
-    Post.create(item_name: post_params[:item_name], text: post_params[:text], user_id: current_user.id)
+    Post.create(item_name: post_params[:item_name], text: post_params[:text])
+    # redirect_to root_path, notice:"投稿「#{post.item_name}を登録しました。"
 
   end
 
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.permit(:item_name, :text)
+    params.require(:post).permit(:item_name, :text)
   end
 
   def move_to_index

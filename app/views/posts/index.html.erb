@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
     <div class="contents row" >
-    <% @tweets.each do |tweet| %>
-      <p><%= tweet.text %></p>
+    <% [].each do |tweet| %>
+      <p><%= tweet %></p>
     <% end %>
+    <% else %>
     </div>
-        <% else %>
         <div class="text-center">
             <h1>WelcomByeへようこそ</h1>
             <h3>今すぐ写真を投稿しよう!</h3>
