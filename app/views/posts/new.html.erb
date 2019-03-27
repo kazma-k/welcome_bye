@@ -6,28 +6,22 @@
       <%= form_with model: @post, local: true do |f| %>
         <label><%= f.radio_button :flag, 0 %> 手に入れた物 </label>
         <label><%= f.radio_button :flag, 1 %> 手放した物</label>
-    </div>
 
-    <div class="form-group">
-        <p>
-          <%= f.label :item_name %><br>
-          <%= f.text_field :item_name, class: 'form-control', placeholder: '例：カバン' %>
-        </p>
-    </div>
+    <p>
+      <%= f.label :item_name %><br>
+      <%= f.text_field :item_name, class: 'form-control', placeholder: '例：カバン', class: 'form-control mb-3' %>
+    </p>
 
-    <div class="form-group">
-      <p>
-        <%= f.label :text %><br>
-        <%= f.text_area :text, rows: 5, class: 'form-control', placeholder: '例：hogehogefoobar' %>
-      </p>
-    </div>
+    <p>
+      <%= f.label :text %><br>
+      <%= f.text_area :text, rows: 5, class: 'form-control', placeholder: '例：hogehogefoobar', class: 'form-control mb-3' %>
+    </p>
 
-    <div class="form-group">
-        <%= f.label :image %><br>
-        <%= f.file_field :image, class: 'form-control' %>
-    </div>
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: 'form-control', class: 'form-control mb-3' %>
 
     <p>
       <%= f.submit class: 'btn btn-lg btn-info' %>
     </p>
     <% end %>
+  </div>
