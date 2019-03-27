@@ -2,11 +2,17 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.order("created_at DESC").page(params[:page]).per(6)
+  end
+
+  def myindex
+    @posts = Post.where(user_id: current_user.id).page(params[:page]).per(6).order("created_at DESC")
+    @posts_flag_zero = Post.where(flag: 0).where(user_id: current_user.id).count
+    @posts_flag_one = Post.where(flag: 1).where(user_id: current_user.id).count
   end
 
   def show
-    # @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
