@@ -12,6 +12,18 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+## postsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|flag|integer|null: false|
+|item_name|string|null: false|
+|text|text|
+
+### Association
+- belongs_to :user
+
 
 * Database initialization
 
