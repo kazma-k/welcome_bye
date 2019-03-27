@@ -14,9 +14,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(flag: post_params[:flag], name_item: post_params[:item_name], text: post_params[:text], user_id: current_user.id)
+    @post = Post.new(flag: post_params[:flag], item_name: post_params[:item_name], text: post_params[:text], image: post_params[:image], user_id: current_user.id)
     if @post.save
-       redirect_to root_path, notice:"投稿「#{post.item_name}を登録しました。"
+       redirect_to root_path, notice:"投稿「#{@post.item_name}を登録しました。"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:flag, :item_name, :text)
+    params.require(:post).permit(:flag, :item_name, :text, :image)
   end
 
   def move_to_index
