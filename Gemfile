@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 # Use mysql as the database for Active Record
