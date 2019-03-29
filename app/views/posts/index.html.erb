@@ -1,32 +1,6 @@
 <% if user_signed_in? %>
-    <% @posts.each do |post| %>
-        <div class="card-deck">
-        <div class="card">
-          <%= link_to image_tag("th_IMG_3245-728x546.jpg", alt: "top image", class: 'card-img-top')%>
-          <div class="card-body">
-            <h4 class="card-title"><%= post.item_name %></h4>
-            <p class="card-text"><%= post.text %></p>
-            <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
-          </div>
-        </div>
-        <div class="card">
-          <%= link_to image_tag("449A0960.jpg", alt: "top image", class: 'card-img-top')%>
-          <div class="card-body">
-            <h4 class="card-title"><%= post.item_name %></h4>
-            <p class="card-text"><%= post.text %></p>
-            <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
-          </div>
-        </div>
-        <div class="card">
-          <%= link_to image_tag("2016-10-21-19.58.24.jpg", alt: "top image", class: 'card-img-top')%>
-          <div class="card-body">
-            <h4 class="card-title"><%= post.item_name %></h4>
-            <p class="card-text"><%= post.text %></p>
-            <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
-          </div>
-        </div>
-      </div>
-        <% end %>
+
+  <%= render @posts %>
         <div class="mb-5">
           <%= paginate @posts %>
           <%= page_entries_info @posts %>
