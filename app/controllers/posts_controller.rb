@@ -5,9 +5,9 @@ class PostsController < ApplicationController
   end
 
   def myindex
-    @posts = Post.current_user.page(params[:page]).sorted.per(6)
-    @gets_item = Post.where(flag: 0).current_user.count
-    @releases_item = Post.where(flag: 1).current_user.count
+    @posts = Post.where(user_id: current_user.id).page(params[:page]).sorted.per(6)
+    @gets_item = Post.where(flag: 0).where(user_id: current_user.id).count
+    @releases_item = Post.where(flag: 1).where(user_id: current_user.id).count
     @notice_message = notice_message(@gets_item, @releases_item)
   end
 
