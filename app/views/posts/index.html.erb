@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
-
+<div class="card-deck">
   <%= render @posts %>
+</div>
         <div class="mb-5">
           <%= paginate @posts %>
           <%= page_entries_info @posts %>
