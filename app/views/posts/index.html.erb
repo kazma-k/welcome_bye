@@ -7,27 +7,18 @@
           <%= page_entries_info @posts %>
         </div>
     <% else %>
+<div class="top-wrapper">
+    <%= link_to image_tag("top_page.jpg", alt: "top image", class: "back_image")%>
+    <p>手にした物・手放した物を整理しよう</p>
+    <div class="sign_up-jump">
+        <%= link_to 'アカウント作成', new_user_registration_path, class: 'btn btn-info btn-lg '%>
     </div>
-        <div class="text-center">
-            <h1>WelcomByeへようこそ</h1>
-            <h3>今すぐ写真を投稿しよう!</h3>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="item1 col-xs-6 col-lg-4">
-                  <%= link_to image_tag("4b7c508ac19ceab99bdaca5dd162ff37_m.jpg", alt: "top image")%>
-                </div>
-                <div class="item2 col-xs-6 col-lg-8">
-                  <h1 class="logo">WelcomBye</h1>
-                  <h2 class="catchcopy">手にした物・手放した物を整理しよう</h2>
-                <%= link_to 'アカウント作成', new_user_registration_path, class: 'btn btn-info btn-lg '%>
-                <div class="login-jump">
-                  <p>
-                    アカウントをお持ちですか?
-                    <%= link_to 'ログインする', new_user_session_path %>
-                  </p>
-                </div>
-              </div>
-        <% end %>
+    <div class="login-jump">
+      <p>
+        アカウントをお持ちですか?
+        <%= link_to 'ログインする', new_user_session_path %>
+      </p>
     </div>
 </div>
+
+<% end %>

@@ -1,9 +1,9 @@
 <div class="card col-xs-12 col-sm-8 col-lg-6 mx-auto ">
-  <%= image_tag @post.image.variant(resize: "457x305").processed, alt: "top image", class: 'card-img-top border border-dark rounded' %>
+  <%= image_tag @post.image.variant(resize: "457x457").processed, alt: "top image", class: 'card-img-top border border-dark rounded' %>
   <div class="card-body">
     <h4 class="card-title"><%= @post.item_name %></h4>
     <p class="card-text"><%= @post.text %></p>
     <p class="card-text"><small class="text-muted"><%= @post.created_at %></small></p>
-    <%= link_to '削除', "/posts/#{@post.id}", method: :delete, class: 'btn btn-danger' %>
+    <%= link_to '削除', "/posts/#{@post.id}", method: :delete, class: 'btn btn-danger mb-3' %>
   </div>
 </div>
