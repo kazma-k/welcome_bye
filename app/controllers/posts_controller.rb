@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :move_to_index, except: :index
   def index
-    @posts = Post.all.order("created_at DESC").page(params[:page]).per(6)
+    @posts = Post.sorted.page(params[:page]).per(6)
   end
 
   def myindex
-    @posts = Post.where(user_id: current_user.id).page(params[:page]).per(6).order("created_at DESC")
-    @gets_item = Post.where(flag: 0).where(user_id: current_user.id).count
-    @releases_item = Post.where(flag: 1).where(user_id: current_user.id).count
+    @posts = Post.current_user.page(params[:page]).sorted.per(6)
+    @gets_item = Post.where(flag: 0).current_user.count
+    @releases_item = Post.where(flag: 1).current_user.count
     @notice_message = notice_message(@gets_item, @releases_item)
   end
 
