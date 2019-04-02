@@ -39,10 +39,10 @@
                     </li>
                   </ul>
                   <form class="form-inline mt-2 mt-md-0">
-                  <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
+                  <%= form_with url: root_path, method: :get, local: true do |f| %>
                     <%  f.label :search, '検索' %>
                     <%= f.text_field :search, class: "form-control mr-sm-2", placeholder: 'item_name' %>
-                    <%= f.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+                    <%= f.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0", item_name: nil %>
                   <% end %>
                   </form>
               </div>
