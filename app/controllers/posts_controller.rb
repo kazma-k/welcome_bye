@@ -34,7 +34,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(flag: post_params[:flag], item_name: post_params[:item_name], text: post_params[:text], image: post_params[:image], user_id: current_user.id)
     if @post.save
-       redirect_to root_path, notice:"投稿「#{@post.item_name}を登録しました。"
+       flash[:success] = "投稿「#{@post.item_name}を登録しました。"
+       redirect_to root_path
     else
       render :new
     end
