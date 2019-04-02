@@ -39,8 +39,11 @@
                     </li>
                   </ul>
                   <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="検索ワード" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                  <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
+                    <%  f.label :search, '検索' %>
+                    <%= f.text_field :search, class: "form-control mr-sm-2", placeholder: 'item_name' %>
+                    <%= f.submit 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+                  <% end %>
                   </form>
               </div>
       </nav>

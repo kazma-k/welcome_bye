@@ -11,6 +11,10 @@ class PostsController < ApplicationController
     @notice_message = notice_message(@gets_item, @releases_item)
   end
 
+  def search
+  @posts = Post.search(params[:search])
+  end
+
   def show
     @post = Post.find(params[:id])
   end
