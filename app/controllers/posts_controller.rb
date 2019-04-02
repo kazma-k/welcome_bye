@@ -1,14 +1,26 @@
 class PostsController < ApplicationController
   before_action :move_to_index, except: :index
   def index
-    @posts = Post.sorted.page(params[:page]).per(6)
+    if params[:search]
+      @posts = Post.where('item_name LIKE ?', "%#{params[:search]}%").page(params[:page]).per(6)
+    else
+      @posts = Post.sorted.page(params[:page]).per(6)
+    end
   end
 
   def myindex
-    @posts = Post.where(user_id: current_user.id).page(params[:page]).sorted.per(6)
+    if params[:search]
+      @posts = Post.where('item_name LIKE ?', "%#{params[:search]}%").page(params[:page]).per(6)
+    else
+      @posts = Post.where(user_id: current_user.id).page(params[:page]).sorted.per(6)
+    end
     @gets_item = Post.where(flag: 0).where(user_id: current_user.id).count
     @releases_item = Post.where(flag: 1).where(user_id: current_user.id).count
     @notice_message = notice_message(@gets_item, @releases_item)
+  end
+
+  def search
+  @posts = Post.search(params[:search])
   end
 
   def show
