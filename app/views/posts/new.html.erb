@@ -6,7 +6,6 @@
       <%= form_with model: @post, local: true do |f| %>
         <label><%= f.radio_button :flag, 0 %> 手に入れた物 </label>
         <label><%= f.radio_button :flag, 1 %> 手放した物</label>
-
     <p>
       <%= f.label :item_name %><br>
       <%= f.text_field :item_name, class: 'form-control', placeholder: '例：カバン、腕時計', class: 'form-control mb-3' %>

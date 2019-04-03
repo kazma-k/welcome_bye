@@ -11,7 +11,7 @@
           <% end %>
           <h4 class="card-title"><%= post.item_name %></h4>
           <p class="card-text"><%= post.text %></p>
-          <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %>前</small></p>
+          <p class="card-text"><small class="text-muted"><%= post.user.display_name %> <%= time_ago_in_words(post.created_at) %>前</small></p>
           <% if user_signed_in? && post.user_id == current_user.id %>
             <%= link_to '詳細', post_path(post), class: 'btn btn-info' %>
           <% end %>
