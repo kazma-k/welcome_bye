@@ -2,7 +2,7 @@
   <% if post.image.attached? %>
   <div class="card_layout col-xs-12 col-sm-6 col-lg-4 ">
       <div class="card">
-        <%= image_tag post.image.variant(resize: "457x305!").processed, alt: "top image", class: 'card-img-top border border-dark rounded' %>
+        <%= image_tag post.image.variant(resize: "457x305!").processed, alt: "top image", class: 'card-img-top rounded' %>
         <div class="card-body">
           <% if post.flag == 0 %>
             <div class="d-inline p-1 bg-info text-white">手に入れた物</div>
@@ -11,10 +11,11 @@
           <% end %>
           <h4 class="card-title"><%= post.item_name %></h4>
           <p class="card-text"><%= post.text %></p>
-          <p class="card-text"><small class="text-muted"><%= post.user.display_name %> <%= time_ago_in_words(post.created_at) %>前</small></p>
+          <p class="card-text text-right"><small class="text-muted"><%= post.user.display_name %> <%= time_ago_in_words(post.created_at) %>前</small>
           <% if user_signed_in? && post.user_id == current_user.id %>
             <%= link_to '詳細', post_path(post), class: 'btn btn-info' %>
           <% end %>
+          </p>
         </div>
       </div>
   </div>

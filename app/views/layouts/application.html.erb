@@ -48,6 +48,7 @@
       </nav>
       <% end %>
     </header>
+    <div class="wrapper">
       <% if notice %>
         <p class="notice"><%= notice %></p>
       <% end %>
@@ -56,5 +57,6 @@
       <% end %>
     <%= yield %>
       <%= render 'layouts/footer' %>
+    </div>
     </body>
 </html>
