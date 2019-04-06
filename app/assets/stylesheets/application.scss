@@ -28,8 +28,6 @@
 /* footer */
 
 footer {
-  display: fixed;
-  margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
@@ -91,3 +89,7 @@ $ok_alert_color: #468847;
 body {
    padding-top: 56px;
   }
+
+.wrapper {
+  background-color: #ededed;
+}
